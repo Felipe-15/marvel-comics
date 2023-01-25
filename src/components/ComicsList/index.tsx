@@ -5,9 +5,11 @@ import { ApiComicResp } from "../../interfaces/ApiComicResp";
 import { Comic } from "../../interfaces/Comic";
 
 import ComicCard from "../ComicCard";
+import NoComics from "../NoComics";
 
 const ComicsList = () => {
   const { data } = useApi<ApiComicResp>("/comics");
+
   let comics: Comic[] = [];
 
   if (data) {
@@ -15,16 +17,21 @@ const ComicsList = () => {
   }
 
   return (
-    <Container>
-      {comics.length > 0 &&
-        comics.map((comic) => {
-          return (
-            <div key={comic.id.toString()}>
-              <ComicCard {...comic} />
-            </div>
-          );
-        })}
-    </Container>
+    <>
+      {comics.length > 0 ? (
+        <Container>
+          {comics.map((comic) => {
+            return (
+              <div key={comic.id.toString()}>
+                <ComicCard {...comic} />
+              </div>
+            );
+          })}
+        </Container>
+      ) : (
+        <NoComics />
+      )}
+    </>
   );
 };
 
