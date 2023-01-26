@@ -1,6 +1,15 @@
 import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+export const PageContainer = styled.div`
+  ${({ theme }) => {
+    return css`
+      height: calc(100% - 80px);
+      width: 100%;
+    `;
+  }}
+`;
+
+export const ListContainer = styled.div`
   ${({ theme }) => {
     return css`
       display: grid;
@@ -11,10 +20,13 @@ export const Container = styled.div`
 
       width: 100%;
       max-width: 1200px;
+      height: 100%;
 
       margin: 0 auto;
 
       padding: ${theme.sizes.xbig} 0;
+
+      overflow-y: scroll;
     `;
   }}
 `;
