@@ -1,7 +1,8 @@
 export interface Comic {
   id: number;
   title: string;
-  thumbnail: { path: string; extensions: string };
+  pageCount: number;
+  thumbnail: { path: string; extension: string };
   resourceURI: string;
   creators: {
     avaiable: number;
@@ -12,5 +13,8 @@ export interface Comic {
         role: string;
       }
     ];
+  };
+  series: {
+    name: string;
   };
 }
