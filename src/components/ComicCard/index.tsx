@@ -3,9 +3,10 @@ import {
   ImageContainer,
   Image,
   Title,
+  ContentContainer,
   DetailsContainer,
   Author,
-  Year,
+  SeeMoreButton,
 } from "./styles";
 
 import { Comic } from "../../interfaces/Comic";
@@ -27,27 +28,31 @@ const ComicCard = ({
   const creator = creators.items[0]?.name;
 
   return (
-    <Container
-      onClick={() =>
-        onSelect({
-          id: id,
-          title: title,
-          pageCount: pageCount,
-          thumbnail: thumbnail,
-          creators: creators,
-          resourceURI: resourceURI,
-          series: series,
-        })
-      }
-    >
+    <Container>
       <ImageContainer>
         <Image src={`${thumbnail.path + "/portrait_uncanny.jpg"}`} />
       </ImageContainer>
-      <Title>{title}</Title>
-      <DetailsContainer>
-        <Author>{creator || "Autor Indisponível"}</Author>
-        <Year></Year>
-      </DetailsContainer>
+      <ContentContainer>
+        <Title>{title}</Title>
+        <DetailsContainer>
+          <Author>{creator || "Autor Indisponível"}</Author>
+          <SeeMoreButton
+            onClick={() =>
+              onSelect({
+                id: id,
+                title: title,
+                pageCount: pageCount,
+                thumbnail: thumbnail,
+                creators: creators,
+                resourceURI: resourceURI,
+                series: series,
+              })
+            }
+          >
+            Ver mais
+          </SeeMoreButton>
+        </DetailsContainer>
+      </ContentContainer>
     </Container>
   );
 };
