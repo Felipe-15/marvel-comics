@@ -39,13 +39,13 @@ const ComicCard = ({
           <SeeMoreButton
             onClick={() =>
               onSelect({
-                id: id,
-                title: title,
-                pageCount: pageCount,
-                thumbnail: thumbnail,
-                creators: creators,
-                resourceURI: resourceURI,
-                series: series,
+                id,
+                title,
+                pageCount,
+                thumbnail,
+                creators,
+                resourceURI,
+                series,
               })
             }
           >
